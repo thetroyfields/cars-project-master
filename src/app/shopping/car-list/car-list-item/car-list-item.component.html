@@ -1,0 +1,40 @@
+
+
+<div class="card shadow-sm">
+	<img
+	  class="bd-placeholder-img card-img-top"
+	  width="100%"
+	  height="225"
+	  [src]="car.imageUrl"
+	/>
+  
+	<div class="card-body">
+	  <p class="card-text"> {{ car.name }} </p>
+	  <div class="d-flex justify-content-between align-items-center">
+		<div class="btn-group">
+			<button
+			  type="button"
+			  class="btn btn-sm btn-success"
+			  (click)="onAddToCart()"
+			>
+			  Add
+			</button>
+
+			<!-- <button
+			  type="button"
+			  class="btn btn-sm btn-danger"
+			  (click)="onRemoveFromCart()"
+			  *ngIf="inCart"
+			>
+			  Remove
+			</button> -->
+		
+			<button type="button" class="btn btn-sm btn-outline-primary" (click)="onViewItem()">
+			  View
+			</button>
+		</div>
+		<small class="text-muted"> {{ car.price | currency: "USD" }} </small>
+	  </div>
+	</div>
+</div>
+

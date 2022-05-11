@@ -1,0 +1,27 @@
+<div class="card">
+	<div class="card-header">
+	  <strong>Filters</strong>
+	</div>
+	<div class="card-body">
+	  <form [formGroup]="priceFilterForm" (ngSubmit)="onSubmit()">
+		<div class="form-group">
+		  <label for="from">From</label>
+		  <input type="number" id="from" class="form-control" formControlName="min" />
+		</div>
+  
+		<div class="form-group">
+		  <label for="to">To</label>
+		  <input type="number" id="to" class="form-control" formControlName="max" />
+		</div>
+  
+		<button class="btn btn-primary btn-block btn-sm" id="filter" type="submit">
+		  Filter by Price
+		</button>
+	  </form>
+	</div>
+  </div>
+  <div *ngIf="filterActive">
+  <button 
+  class="btn btn-secondary"
+  (click)="onCancelFilter()"> Price </button>
+	</div>

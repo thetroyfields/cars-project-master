@@ -1,0 +1,6 @@
+<ul class="list-group">
+	<div class="list-header">Your Cart</div>
+	<li class="list-group-item" *ngFor="let item of cart; let i = index">
+	  <app-cart-item [cartItem]="item" [index]="i"></app-cart-item>
+	</li>
+  </ul>

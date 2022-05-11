@@ -1,0 +1,6 @@
+<div class="cart-item">
+			<span> {{ cartItem.car.name }} </span>
+			<strong> {{ cartItem.car.price | currency: "USD" }} </strong>
+			<button class="btn btn-danger" type="button" (click)="onRemoveFromCart(index)"> X </button>
+	
+  </div>

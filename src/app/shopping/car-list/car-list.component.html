@@ -1,0 +1,8 @@
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+	<div class="col" *ngFor="let carEl of cars; let i = index">
+	<app-car-list-item 
+	  [car]="carEl"
+	  [index]="i">
+	</app-car-list-item>
+	</div>
+  </div>
