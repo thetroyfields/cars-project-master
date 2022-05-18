@@ -11,7 +11,6 @@ import { CartItem } from './cart-item.model';
 export class CartItemComponent implements OnInit {
 
   @Input() cartItem!: CartItem;
-  @Input() index!: number;
   
   constructor(private cartService: CartService) { }
 
@@ -19,7 +18,7 @@ export class CartItemComponent implements OnInit {
     
   }
   
-  onRemoveFromCart(index: number) {
-    this.cartService.removeFromCart(index)
+  onRemoveFromCart() {
+    this.cartService.removeFromCart(this.cartItem.car)
   }
 }

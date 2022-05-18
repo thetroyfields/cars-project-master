@@ -12,16 +12,18 @@ export class CarService {
   constructor(private http: HttpClient) {}
 
   addNewCar(car: Car) {
-    // return this.http
-    //   .post('https://cars-56cf1-default-rtdb.firebaseio.com/cars.json', car)
-    //   .subscribe((data) => {
-        this.cars.push(car);
-        this.carsChanged.next(this.cars.slice());
-      // });
+    this.cars.push(car);
+    this.carsChanged.next(this.cars.slice());
   }
 
-  getCar(index: number) {
-    return this.cars[index];
+  getCar(id: string) {
+    for (let car of this.cars) {
+      if (car.id == id) {
+        return car;
+      }
+    }
+
+    return;
   }
 
   getCars() {

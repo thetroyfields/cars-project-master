@@ -15,7 +15,7 @@ export class CarListComponent implements OnInit, OnDestroy {
   carSubscription!: Subscription;
   cartSubscription!: Subscription;
   cars!: Car[];
-  cart!: CartItem[];
+  cart: string[] = [];
 
   constructor(
     private carService: CarService,
@@ -36,8 +36,8 @@ export class CarListComponent implements OnInit, OnDestroy {
 
     this.cartSubscription = this.cartService.cartChanged.subscribe(
       (cart: CartItem[]) => {
-        this.cart = cart;
-      }
+        this.cart = [...cart].map((data) => data.car.id)
+        }
     );
 
     this.dataService.fetchCars().subscribe((data) => {

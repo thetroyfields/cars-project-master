@@ -1,0 +1,26 @@
+/* div.list-header {
+    text-align: center; 
+    font-weight: bold;
+    font-size: 17px; 
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+div.border {
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    background-color: lightgray;
+    height: 100%;
+}
+
+li.list-group-item {
+    width: 100%;
+    margin-left: 0;
+} */
+
+@media (min-width: 1025px) {
+    .h-custom {
+    height: 100vh !important;
+    }
+    }

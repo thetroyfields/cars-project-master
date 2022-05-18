@@ -1,6 +1,36 @@
-<div class="cart-item">
-			<span> {{ cartItem.car.name }} </span>
-			<strong> {{ cartItem.car.price | currency: "USD" }} </strong>
-			<button class="btn btn-danger" type="button" (click)="onRemoveFromCart(index)"> X </button>
+
+			<!-- <span> {{ cartItem.car.name }} </span>
+			<span><strong> {{ cartItem.car.price | currency: "USD" }} </strong></span>
+			<button 
+			class="btn btn-danger" 
+			type="button" 
+			(click)="onRemoveFromCart()"> X </button> -->
 	
-  </div>
+			
+			<div class="card mb" style="border: none;">
+				<div class="card-body">
+				  <div class="d-flex">
+					<div class="d-flex align-items-center" style="width: 100%">
+					  <div>
+						<img
+						  [src]="cartItem.car.imageUrl"
+						  class="img-fluid rounded" alt="Shopping item" style="width: 70px;">
+					  </div>
+					  <div class="ms-3" style="margin-left: 5px;">
+						<h5> {{ cartItem.car.name }} </h5>
+						<p class="small mb-0">256GB, Navy Blue</p>
+					  </div>
+					</div>
+					<div class="d-flex flex-row align-items-center">
+					  <div style="width: 50px;">
+						
+					  </div>
+					  <div class="float-right"style="width: 80px;">
+						<h6 class="mb-0">{{ cartItem.car.price | currency: "USD" }}</h6>
+					  </div>
+					  <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			

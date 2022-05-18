@@ -10,14 +10,14 @@ import { CarService } from '../car-list/car.service';
 })
 export class CarDetailComponent implements OnInit {
 
-  id!: number;
-  car!: Car;
+  id!: string;
+  car!: Car | undefined;
   constructor( private route: ActivatedRoute,
             private carService: CarService) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      this.id = +params['index'];
+      this.id = params['id'];
     })
     this.car = this.carService.getCar(this.id);
     console.log(this.car);

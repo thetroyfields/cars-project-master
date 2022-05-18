@@ -5,47 +5,43 @@ import { Car } from '../car-list/car.model';
 import { CartItem } from './cart-item/cart-item.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartService {
-
   cartChanged = new Subject<CartItem[]>();
   cart: CartItem[] = [];
 
-  constructor( private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getCart(){
+  getCart() {
     return this.cart.slice();
   }
 
-  setCart(items: CartItem[]){
+  setCart(items: CartItem[]) {
     this.cart = items;
     this.cartChanged.next(this.cart);
   }
-  
+
   addToCart(car: Car) {
-    let itemToAdd = new CartItem(car, 1 );
+    let itemToAdd = new CartItem(car, 1);
 
     return this.http
-    .post<CartItem>('https://cars-56cf1-default-rtdb.firebaseio.com/cart.json', itemToAdd)
-    .subscribe((data) => {
-      this.cart.push(itemToAdd)
-      this.cartChanged.next(this.cart.slice());
-      }
-    );
+      .post<CartItem>(
+        'https://cars-56cf1-default-rtdb.firebaseio.com/cart.json',
+        itemToAdd
+      )
+      .subscribe((data) => {
+        this.cart.push(itemToAdd);
+        this.cartChanged.next(this.cart.slice());
+      });
   }
 
-  removeFromCart(index: number){
-    this.cart.splice(index, 1);
+  removeFromCart(car: Car) {
+    this.cart.forEach((element, index) => {
+      if (element.car.id == car.id) {
+        this.cart.splice(index, 1);
+      }
+    });
     this.cartChanged.next(this.cart.slice());
   }
-
-  // checkCart(id: number){
-  //   for (let item of this.cart){
-  //     if ( item.productId === id){
-  //       return true;
-  //     }
-  //   }
-  // }
 }
-

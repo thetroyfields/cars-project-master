@@ -11,8 +11,7 @@ import { CarService } from '../car.service';
 })
 export class CarListItemComponent implements OnInit {
   @Input() car!: Car;
-  @Input() index!: number;
-  // @Input() inCart!: boolean;
+  @Input() inCart?: boolean;
 
   constructor(private cartService: CartService, private router: Router) {}
 
@@ -21,10 +20,12 @@ export class CarListItemComponent implements OnInit {
   }
 
   onViewItem() {
-    this.router.navigateByUrl(`${this.car.name}/${this.index}`);
+    this.router.navigateByUrl(`${this.car.id}`);
   }
   onAddToCart() {
     this.cartService.addToCart(this.car);
   }
-  onRemoveFromCart() {}
+  onRemoveFromCart() {
+    this.cartService.removeFromCart(this.car)
+  }
 }
