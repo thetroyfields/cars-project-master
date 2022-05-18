@@ -11,10 +11,10 @@ const routes: Routes = [
   { path: 'shopping', component: ShoppingComponent, children: [
     { path: '', component: CarListComponent }
   ]},
-  { path: ':id', component: CarDetailComponent, canActivate: [AuthGuard] },
-  { path: '', redirectTo: '/shopping', pathMatch: 'full'},
+  { path: 'auth', component: AuthComponent},
   { path: 'sell', component: SellComponent, canActivate: [AuthGuard]},
-  { path: 'auth', component: AuthComponent}
+  { path: ':id', component: CarDetailComponent, canActivate: [AuthGuard] },
+  { path: '', redirectTo: '/shopping', pathMatch: 'full'}
 ];
 
 @NgModule({
